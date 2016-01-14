@@ -47,6 +47,7 @@ program
         if (inventory !== 'vagrant') {
             arguments.push('--vault-password-file=~/.ssh/partup-server');
             arguments.push('--private-key=~/.ssh/partup-server');
+            arguments.push('--user=root');
         }
 
         run('ansible-playbook', arguments);
@@ -62,6 +63,7 @@ program
         arguments.push('-a', command.toLowerCase());
 
         if (inventory !== 'vagrant') {
+            arguments.push('--vault-password-file=~/.ssh/partup-server');
             arguments.push('--private-key=~/.ssh/partup-server');
             arguments.push('--user=root');
         }

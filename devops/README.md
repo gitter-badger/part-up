@@ -7,6 +7,9 @@ https://hub.docker.com/r/lifely/partup
 - ensure homebrew is installed: `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 - ensure ansible is installed: `brew install ansible`
 
+> NOTE! Ansible > 2.0 is required, to upgrade use `brew upgrade --devel ansible` for now.
+> You can switch between ansible versions using `brew switch ansible <version>`
+
 # Application
 
 ## Deployment
