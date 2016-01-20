@@ -22,6 +22,20 @@ Partup.client.strings = {
             .toLowerCase();                 // ensure lower case characters
     },
 
+    /**
+     * Emoji helper
+     * turns text into emojis
+     * See: https://github.com/lookback/meteor-emoji
+     */
+    emojify: function(stringToEmoji) {
+        
+        if (typeof stringToEmoji !== 'string') {
+            return stringToEmoji;
+        }
+
+        return Emojis.parse(stringToEmoji)
+    },
+
     tagsStringToArray: function(tagString) {
         if (!tagString) return [];
         return tagsArray = tagString.replace(/\s/g, '').split(',').map(function(tag) {

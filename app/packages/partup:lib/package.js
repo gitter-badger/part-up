@@ -19,6 +19,7 @@ Package.onUse(function(api) {
         'matb33:collection-hooks',
         'partup:client-copy-to-clipboard',
         'lifely:mout',
+        'lookback:emoji',
         'iron:router',
         'http'
     ]);
