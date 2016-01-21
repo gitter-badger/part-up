@@ -54,15 +54,15 @@ Partup.transformers.partup = {
     'fromFormStartPartup': function(fields) {
         var partup = {
             // form fields
-            name: sanitizeHtml(fields.partup_name),
-            description: sanitizeHtml(fields.description),
+            name: fields.partup_name,
+            description: fields.description,
             type: fields.type,
             type_commercial_budget: fields.type_commercial_budget,
             type_organization_budget: fields.type_organization_budget,
             currency: fields.currency,
             end_date: fields.end_date,
             image: fields.image,
-            tags: Partup.services.tags.tagInputToArray(sanitizeHtml(fields.tags_input)),
+            tags: Partup.services.tags.tagInputToArray(fields.tags_input),
             language: Partup.server.services.google.detectLanguage(fields.description),
             phase: fields.phase
         };

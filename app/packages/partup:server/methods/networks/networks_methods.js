@@ -15,7 +15,7 @@ Meteor.methods({
 
         try {
             var network = {};
-            network.name = sanitizeHtml(fields.name);
+            network.name = fields.name;
             network.privacy_type = fields.privacy_type;
             network.slug = Partup.server.services.slugify.slugify(fields.name);
             network.uppers = [user._id];

@@ -20,7 +20,7 @@ Meteor.methods({
 
         var comment = {
             _id: Random.id(),
-            content: sanitizeHtml(fields.content),
+            content: fields.content,
             type: fields.type,
             creator: {
                 _id: upper._id,
@@ -110,7 +110,7 @@ Meteor.methods({
             if (comment) {
                 Updates.update({_id: updateId, 'comments._id': commentId}, {
                     $set: {
-                        'comments.$.content': sanitizeHtml(fields.content),
+                        'comments.$.content': fields.content,
                         'comments.$.updated_at': new Date()
                     }
                 });

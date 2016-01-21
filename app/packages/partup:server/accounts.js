@@ -51,7 +51,7 @@ var defaultEmailObject = {
 Accounts.onCreateUser(function(options, user) {
     var imageUrl;
 
-    var sanitizedName = sanitizeHtml(options.profile.name);
+    var sanitizedName = options.profile.name;
     var profile = {
         name: sanitizedName,
         normalized_name: Partup.helpers.normalize(sanitizedName),
@@ -84,11 +84,11 @@ Accounts.onCreateUser(function(options, user) {
             }
         }
 
-        var sanitizedName = sanitizeHtml(liData.firstName + ' ' + liData.lastName);
+        var sanitizedName = liData.firstName + ' ' + liData.lastName;
 
         profile = {
-            firstname: sanitizeHtml(liData.firstName),
-            lastname: sanitizeHtml(liData.lastName),
+            firstname: liData.firstName,
+            lastname: liData.lastName,
             location: location,
             linkedin_url: 'https://linkedin.com/profile/view?id=' + liData.id,
             name: sanitizedName,
@@ -109,11 +109,11 @@ Accounts.onCreateUser(function(options, user) {
         d('User used Facebook to register');
 
         profile = {
-            firstname: sanitizeHtml(fbData.first_name),
+            firstname: fbData.first_name,
             gender: fbData.gender,
             lastname: fbData.last_name,
             facebook_url: 'https://facebook.com/' + fbData.id,
-            name: sanitizeHtml(fbData.name),
+            name: fbData.name,
             normalized_name: Partup.helpers.normalize(fbData.name),
             settings: {
                 locale: Partup.helpers.parseLocale(fbData.locale),

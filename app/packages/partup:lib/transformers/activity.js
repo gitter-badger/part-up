@@ -14,8 +14,8 @@ Partup.transformers.activity = {
      */
     'fromForm': function(fields, upperId, partupId) {
         return {
-            name: sanitizeHtml(fields.name),
-            description: sanitizeHtml(fields.description),
+            name: fields.name,
+            description: fields.description,
             end_date: fields.end_date,
             created_at: new Date(),
             updated_at: new Date(),

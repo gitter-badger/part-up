@@ -27,10 +27,10 @@ Partup.services.location = {
 
         var location = {};
 
-        location.city = sanitizeHtml(result.name);
-        location.lat = sanitizeHtml(mout.object.get(result, 'geometry.location.lat'));
-        location.lng = sanitizeHtml(mout.object.get(result, 'geometry.location.lng'));
-        location.place_id = sanitizeHtml(result.place_id);
+        location.city = result.name;
+        location.lat = mout.object.get(result, 'geometry.location.lat');
+        location.lng = mout.object.get(result, 'geometry.location.lng');
+        location.place_id = result.place_id;
 
         // Initialise country in case we can't find it
         location.country = null;
@@ -39,7 +39,7 @@ Partup.services.location = {
         var addressComponents = result.address_components || [];
         addressComponents.forEach(function(component) {
             if (mout.array.contains(component.types, 'country')) {
-                location.country = sanitizeHtml(component.long_name);
+                location.country = component.long_name;
             }
         });
 
