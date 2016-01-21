@@ -148,7 +148,7 @@
             {{#if partupEqualsExactly update.data.type 'partups_description_changed' }}
                 {{#with update.data.type_data }}
                     <section>
-                        <p class="pu-paragraph pu-paragraph-large">{{{ partupAutolink new_description }}}</p>
+                        <p class="pu-paragraph pu-paragraph-large">{{#with partupSanitize new_description }}{{{ partupAutolink . }}}{{/with}}</p>
                     </section>
                 {{/with}}
             {{/if }}

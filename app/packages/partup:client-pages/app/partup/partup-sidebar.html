@@ -18,7 +18,7 @@
         <section class="pu-sub-dark">
             <div class="pu-sidebar-wrap">
                 <section>
-                    <p class="pu-sub-abstract">{{{ partupAutolink partup.description }}}</p>
+                    <p class="pu-sub-abstract">{{#with partupSanitize partup.description }}{{{ partupAutolink . }}}{{/with}}</p>
                     <ul class="pu-list pu-list-horizontal pu-list-tags">
                         {{#each partup.tags }}
                             <li><span class="pu-tag pu-tag-inverted">{{ . }}</span></li>

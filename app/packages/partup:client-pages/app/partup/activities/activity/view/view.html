@@ -68,7 +68,7 @@
                 <!-- If multiple contributions were found, show the activity description and metadata -->
                 {{# unless COMPACT }}
                     {{# if activity.description }}
-                        <p class="pu-sub-description pu-paragraph">{{{ partupAutolink activity.description }}}</p>
+                        <p class="pu-sub-description pu-paragraph">{{#with partupSanitize activity.description }}{{{ partupAutolink . }}}{{/with }}</p>
                     {{/ if }}
 
                     {{# if showMetaData }}

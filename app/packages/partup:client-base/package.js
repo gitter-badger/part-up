@@ -67,6 +67,7 @@ Package.onUse(function(api) {
         'client/notifications.js',
         'client/embed.js',
         'client/partuptile.js',
+        'helpers/sanitize.js',
         'helpers/log.js',
         'helpers/partupResponsive.js',
         'helpers/dateFormatters.js',
