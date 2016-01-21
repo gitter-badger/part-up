@@ -61,9 +61,7 @@ Meteor.methods({
                 Updates.update({_id: message._id}, {$set: {
                     type_data: {
                         old_value: message.type_data.new_value,
-                        new_value: sanitizeHtml(fields.text, {
-                            allowedTags: []
-                        }),
+                        new_value: fields.text,
                         images: fields.images
                     },
                     updated_at: new Date()
