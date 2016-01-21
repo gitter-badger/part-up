@@ -31,16 +31,19 @@ Partup.transformers.network = {
      * @param {mixed[]} fields
      */
     'fromFormNetwork': function(fields) {
-        fields.name = sanitizeHtml(fields.name);
-        fields.tags = Partup.services.tags.tagInputToArray(sanitizeHtml(fields.tags_input));
-        fields.language = Partup.server.services.google.detectLanguage(fields.description);
+        var network = {
+            name: fields.name,
+            description: fields.description,
+            website: fields.website,
+            tags: Partup.services.tags.tagInputToArray(fields.tags_input),
+            language: Partup.server.services.google.detectLanguage(fields.description),
+            image: fields.image,
+            icon: fields.icon
+        };
 
         var newLocation = Partup.services.location.locationInputToLocation(fields.location_input);
-        if (newLocation) fields.location = newLocation;
+        if (newLocation) network.location = newLocation;
 
-        delete fields.tags_input;
-        delete fields.location_input;
-
-        return fields;
+        return network;
     }
 };
