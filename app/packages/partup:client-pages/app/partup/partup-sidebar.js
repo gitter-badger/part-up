@@ -113,13 +113,13 @@ Template.app_partup_sidebar.helpers({
         if (partup.type === Partups.TYPE.COMMERCIAL || partup.type === Partups.TYPE.ORGANIZATION) {
             status.push(__('pages-app-partup-status_text-with-budget', {
                 date: moment(partup.end_date).format('LL'),
-                city: city,
-                budget: prettyBudget(partup)
+                city: Partup.client.sanitize(city),
+                budget: Partup.client.sanitize(prettyBudget(partup))
             }));
         } else {
             status.push(__('pages-app-partup-status_text-without-budget', {
                 date: moment(partup.end_date).format('LL'),
-                city: city
+                city: Partup.client.sanitize(city)
             }));
         }
 
@@ -141,13 +141,13 @@ Template.app_partup_sidebar.helpers({
                 status.push(__('pages-app-partup-status_text-private'));
                 break;
             case Partups.NETWORK_PUBLIC:
-                status.push(__('pages-app-partup-status_text-network-public', {network: networkText, path: networkPath}));
+                status.push(__('pages-app-partup-status_text-network-public', {network: Partup.client.sanitize(networkText), path: networkPath}));
                 break;
             case Partups.NETWORK_INVITE:
-                status.push(__('pages-app-partup-status_text-network-invite', {network: networkText, path: networkPath}));
+                status.push(__('pages-app-partup-status_text-network-invite', {network: Partup.client.sanitize(networkText), path: networkPath}));
                 break;
             case Partups.NETWORK_CLOSED:
-                status.push(__('pages-app-partup-status_text-network-closed', {network: networkText, path: networkPath}));
+                status.push(__('pages-app-partup-status_text-network-closed', {network: Partup.client.sanitize(networkText), path: networkPath}));
                 break;
         }
 

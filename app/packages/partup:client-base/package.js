@@ -29,6 +29,7 @@ Package.onUse(function(api) {
         'client/console-shim.js',
 
         'namespace.js',
+        'client/sanitize.js',
 
         'constructors/ColumnTilesLayout.js',
 

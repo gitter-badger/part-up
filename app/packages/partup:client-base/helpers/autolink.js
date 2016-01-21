@@ -1,6 +1,6 @@
 // full documentation for Autolinker at http://gregjacobs.github.io/Autolinker.js/docs/#!/api/Autolinker
 Template.registerHelper('partupAutolink', function(text) {
-    var jaja = Autolinker.link(text, {
+    var jaja = Autolinker.link(Partup.client.sanitize(text), {
         twitter: false, // to not parse twitter handles
         hashtag: false, // do not parse hashtags
         phone: false, // i've set this to false, because it does not work with dutch phone-number formatting
@@ -22,5 +22,6 @@ Template.registerHelper('partupAutolink', function(text) {
             return tag;
         }
     });
+
     return jaja;
 });
