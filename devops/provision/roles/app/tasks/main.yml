@@ -2,7 +2,7 @@
 - name: docker | start application
   docker:
     name: app
-    image: "lifely/partup:{{ tag }}"
+    image: "partup/partup:{{ tag }}"
     username: "{{ docker.registry.username }}"
     email: "{{ docker.registry.email }}"
     password: "{{ docker.registry.password }}"
